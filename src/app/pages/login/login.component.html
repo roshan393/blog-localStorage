@@ -1,0 +1,28 @@
+<div class="bg-gray-100 flex items-center justify-center min-h-screen">
+     <div class="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md">
+
+            <!-- Signup Form -->
+            <form #signUpForm="ngForm" *ngIf="isLoginActive == false" class="space-y-4 mb-8">
+                <h2 class="text-2xl font-bold mb-4 text-center">Sign Up</h2>
+                <div>
+                  <input  name="email" [(ngModel)]="signUpObj.email" required type="email" #email="ngModel" placeholder="Email ID" class="w-full p-3 border rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+                  <p *ngIf="email.errors && email.touched" class="text-red-500">Enter valid email id</p>
+                </div>
+              <input name="name" [(ngModel)]="signUpObj.name" required="" type="text" placeholder="Full Name" class="w-full p-3 border rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+              <input required name="password" [(ngModel)]="signUpObj.password" type="password" placeholder="Password" class="w-full p-3 border rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+              <button  (click)="onSignup(signUpForm)" type="button" class="w-full bg-blue-500 text-white py-3 rounded-md hover:bg-blue-600">Sign Up</button>
+                <button (click)="isLoginActive = !isLoginActive"  class="text-center cursor-pointer text-gray-500 mt-4">Already have an account? <a  class="text-blue-500 hover:underline ">Login</a></button >
+            </form>
+               
+
+            <!-- Login Form -->
+            <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)" *ngIf="isLoginActive" class="space-y-4">
+                <h2 class="text-2xl font-bold mb-4 text-center">Login</h2>
+              <input type="email" formControlName="email" placeholder="Email ID" class="w-full p-3 border rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-400" />
+              <input type="password" formControlName="password" placeholder="Password" class="w-full p-3 border rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-400" />
+              <button  type="submit" class="w-full bg-green-500 text-white py-3 rounded-md hover:bg-green-600">Login</button>
+              <button (click)="isLoginActive = !isLoginActive"  class="text-center cursor-pointer text-gray-500 mt-4">Don't have an account? <a  class="text-blue-500 hover:underline">Sign Up</a></button>
+            </form>
+  </div>
+    
+</div>

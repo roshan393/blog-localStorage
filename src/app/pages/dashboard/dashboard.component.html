@@ -1,0 +1,19 @@
+<div class="bg-white shadow-md">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <button (click)="onLogout()" class="text-black px-4 py-2 cursor-pointer bg-blue-500 hover:bg-blue-600 font-medium">Delete Account</button>
+      
+      <!-- Left: Navigation Links -->
+      <div class="flex space-x-6">
+        <a  routerLink="/all-blogs" class="text-black hover:text-blue-600 font-medium">All Blogs</a>
+        <a routerLink="/my-blogs" class="text-black hover:text-blue-600 font-medium">Your Blogs</a>
+      </div>
+
+      <!-- Right: Logo -->
+      <div class="text-xl font-bold text-black">
+        Blog-roshan
+      </div>
+    </div>
+  </nav>
+</div>
+<router-outlet/>
